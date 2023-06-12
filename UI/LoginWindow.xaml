@@ -1,0 +1,81 @@
+﻿<Window x:Class="DeliveryApp.UI.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeliveryApp.UI"
+        mc:Ignorable="d"
+        Title="Вход в систему" Height="350" Width="440" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" MaxWidth="440" MinWidth="440" MinHeight="350" MaxHeight="350" Icon="/Resources/Логотип.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <Image Panel.ZIndex="1" Source="/Resources/Логотип.png" HorizontalAlignment="Left"/>
+
+        <Rectangle Fill="#FFBAE3E8" 
+                   Stroke="#FFBAE3E8" 
+                   Grid.Row="2"/>
+
+        <Rectangle Fill="#FF445C98" 
+                   Stroke="#FF445C98"/>
+
+        <StackPanel Grid.Row="1" Margin="145,34,133,29">
+
+
+            <Label Content="Логин:" 
+                   FontFamily="Comic Sans MS" 
+                   Height="26"  
+                   Margin="2"/>
+
+            <TextBox x:Name="textBox_Login" 
+                     Width="70" 
+                     Height="20" 
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Center" 
+                     Margin="2" 
+                     TextChanged="textBox_Login_TextChanged" />
+
+            <Label Content="Пароль:" 
+                   FontFamily="Comic Sans MS" 
+                   Margin="2"/>
+
+            <PasswordBox x:Name="pswrdBox_Login" 
+                         Width="70" 
+                         Height="20"
+                         Margin="1"
+                         IsEnabled="False"
+                         PasswordChanged="pswrdBox_Login_PasswordChanged"/>
+
+            <TextBox x:Name="textBox_PasswordShow" 
+                     Width="70" 
+                     Height="20"  
+                     Visibility="Hidden"/>
+
+            <CheckBox x:Name="checkBox_ShowPassword" 
+                      Content="Показать пароль" 
+                      FontFamily="Comic Sans MS" 
+                      FontSize="10" 
+                      VerticalAlignment="Center" 
+                      HorizontalAlignment="Left"  
+                      Margin="2,2,2,2" 
+                      Click="checkBox_ShowPassword_Click" 
+                      Height="20" Width="105" 
+                      IsEnabled="False"/>
+
+            <Button x:Name="btn_LogIn" 
+                    Content="Войти" Width="70" 
+                    Height="20"  
+                    Margin="2" 
+                    Style="{StaticResource Button}" 
+                    FontSize="10" Click="btn_LogIn_Click" 
+                    IsEnabled="False"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
