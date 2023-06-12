@@ -15,11 +15,20 @@ namespace DeliveryApp.DBEntities
     
     public partial class Delivery_DBEntities : DbContext
     {
+        private static Delivery_DBEntities _context;
+
         public Delivery_DBEntities()
             : base("name=Delivery_DBEntities")
         {
         }
-    
+
+        public static Delivery_DBEntities GetContext()
+        {
+            if (_context == null)
+                _context = new Delivery_DBEntities();
+            return _context;
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

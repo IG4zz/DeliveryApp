@@ -5,75 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeliveryApp.UI"
         mc:Ignorable="d"
-        Title="Вход в систему" Height="350" Width="440" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" MaxWidth="440" MinWidth="440" MinHeight="350" MaxHeight="350" Icon="/Resources/Логотип.png">
+        Title="Вход в систему" Height="350" Width="440" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" MaxWidth="440" MinWidth="440" MinHeight="350" MaxHeight="350" Icon="/Resources/logo.png">
     <Grid>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="20*"/>
             <RowDefinition Height="80*"/>
-            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
 
-        <Image Panel.ZIndex="1" Source="/Resources/Логотип.png" HorizontalAlignment="Left"/>
+        <Image Panel.ZIndex="1" Source="/Resources/logo.png" HorizontalAlignment="Left"/>
 
-        <Rectangle Fill="#FFBAE3E8" 
-                   Stroke="#FFBAE3E8" 
-                   Grid.Row="2"/>
-
-        <Rectangle Fill="#FF445C98" 
+        <Rectangle Fill="#FF96C355" 
                    Stroke="#FF445C98"/>
 
-        <StackPanel Grid.Row="1" Margin="145,34,133,29">
+        <StackPanel Grid.Row="1" Margin="145,34,133, 0">
 
 
             <Label Content="Логин:" 
                    FontFamily="Comic Sans MS" 
-                   Height="26"  
+                   FontSize="16"
                    Margin="2"/>
 
             <TextBox x:Name="textBox_Login" 
-                     Width="70" 
-                     Height="20" 
+                     Width="90" 
+                     Height="25" 
                      HorizontalAlignment="Center" 
                      VerticalAlignment="Center" 
-                     Margin="2" 
-                     TextChanged="textBox_Login_TextChanged" />
+                     Margin="2"/>
 
             <Label Content="Пароль:" 
                    FontFamily="Comic Sans MS" 
-                   Margin="2"/>
+                   FontSize="16"
+                   Margin="2"/>                 
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-            <PasswordBox x:Name="pswrdBox_Login" 
-                         Width="70" 
-                         Height="20"
-                         Margin="1"
-                         IsEnabled="False"
-                         PasswordChanged="pswrdBox_Login_PasswordChanged"/>
+                <PasswordBox x:Name="pswrdBox_Login" 
+                         Width="90" 
+                         Height="25"/>
 
-            <TextBox x:Name="textBox_PasswordShow" 
-                     Width="70" 
-                     Height="20"  
+
+                <TextBox x:Name="textBox_PasswordShow" 
+                     Width="90" 
+                     Height="25"  
                      Visibility="Hidden"/>
+  
+            </Grid>
 
             <CheckBox x:Name="checkBox_ShowPassword" 
                       Content="Показать пароль" 
                       FontFamily="Comic Sans MS" 
-                      FontSize="10" 
+                      FontSize="14" 
                       VerticalAlignment="Center" 
                       HorizontalAlignment="Left"  
-                      Margin="2,2,2,2" 
+                      Margin="5"
                       Click="checkBox_ShowPassword_Click" 
-                      Height="20" Width="105" 
-                      IsEnabled="False"/>
+                     />
 
             <Button x:Name="btn_LogIn" 
-                    Content="Войти" Width="70" 
-                    Height="20"  
+                    Content="Войти" 
+                    Width="90" 
+                    Height="30"  
                     Margin="2" 
-                    Style="{StaticResource Button}" 
-                    FontSize="10" Click="btn_LogIn_Click" 
-                    IsEnabled="False"/>
+                    FontSize="15" 
+                    Click="btn_LogIn_Click" 
+                    />
 
         </StackPanel>
 

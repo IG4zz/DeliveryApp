@@ -112,6 +112,7 @@
     <Compile Include="DBEntities\Users.cs">
       <DependentUpon>Delivery_DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Libs\Class1.cs" />
     <Compile Include="UI\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -158,7 +159,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Libs\" />
     <Folder Include="Styles\" />
     <Folder Include="UI\UC\" />
   </ItemGroup>
