@@ -14,12 +14,18 @@
             <RowDefinition Height="80*"/>
         </Grid.RowDefinitions>
 
-        <Image Panel.ZIndex="1" Source="/Resources/logo.png" HorizontalAlignment="Left"/>
+        <Image Panel.ZIndex="1" Source="/Resources/logo.png" HorizontalAlignment="Left"  Width="88"/>
 
         <Rectangle Fill="#FF96C355" 
-                   Stroke="#FF445C98"/>
+                   Stroke="#FF96C355"/>
 
-        <StackPanel Grid.Row="1" Margin="145,34,133, 0">
+        <Label Content="Ямщик"
+               FontFamily="Comic Sans MS"
+               Panel.ZIndex="1"
+               FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+
+        <StackPanel Grid.Row="1" Margin="145,5,133,0">
 
 
             <Label Content="Логин:" 
@@ -37,8 +43,8 @@
             <Label Content="Пароль:" 
                    FontFamily="Comic Sans MS" 
                    FontSize="16"
-                   Margin="2"/>                 
-            
+                   Margin="2"/>
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -53,7 +59,7 @@
                      Width="90" 
                      Height="25"  
                      Visibility="Hidden"/>
-  
+
             </Grid>
 
             <CheckBox x:Name="checkBox_ShowPassword" 
