@@ -6,79 +6,57 @@
         xmlns:local="clr-namespace:DeliveryApp.UI"
         xmlns:uc="clr-namespace:DeliveryApp.UI.UC"
         mc:Ignorable="d"
-        Title="Туры" Height="550" Width="800"  MinWidth="800" MinHeight="450" MaxWidth="1840" MaxHeight="912" BorderBrush="#FF0DBEDA" WindowStartupLocation="CenterScreen" Icon="/Resources/logo.png" WindowStyle="ToolWindow">
+        Title="Ямщик-Посылки" Height="550" Width="800"  MinWidth="800" MinHeight="450" MaxWidth="1340" MaxHeight="912" BorderBrush="#FF0DBEDA" WindowStartupLocation="CenterScreen" Icon="/Resources/logo.png" WindowStyle="ToolWindow">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="80*"/>
             <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
 
         <uc:PackageInfoView x:Name="PackageInfo" Grid.Row="2"/>
 
-        <Image Panel.ZIndex="1" Source="/Resources/logo.png" HorizontalAlignment="Left"/>
+        <Image Panel.ZIndex="1" Source="/Resources/logo.png" HorizontalAlignment="Left" Height="120" Width="120" Margin="-26,-19,0,44" Grid.RowSpan="2"/>
 
-        <Label Content="Поиск(По названию тура):" 
+        <Label Content="Поиск(По номеру посылки):" 
                Panel.ZIndex="1"  
                FontFamily="Comic Sans MS" 
-               Margin="65,15,0,15" 
+               Margin="75,15,0,15" 
+               FontSize="18"
                HorizontalAlignment="Left"/>
 
         <Grid Grid.Row="1" Width="410" HorizontalAlignment="Left" Margin="5" Panel.ZIndex="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
-
-            <TextBlock Text="Выберите тип тура:" 
-                   Panel.ZIndex="1"
-                   Width="155"
-                   FontFamily="Comic Sans MS"
-                   TextAlignment="Right"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Grid.Row="0" 
-                   Margin="0,0,100,0"/>
-
-            <ComboBox Width="225" 
-                  Grid.Row="0"
-                  Panel.ZIndex="1"
-                  x:Name="ComboType"
-                  FontFamily="Comic Sans MS"
-                  
-                  HorizontalAlignment="Right"
-                  VerticalAlignment="Center"
-                  DisplayMemberPath="Name" 
-                  Margin="0,0,25,0"/>
-
-            <TextBlock Panel.ZIndex="1"
+          
+            <TextBlock Text="Упорядочить по"
+                       Panel.ZIndex="1"
                        Width="155"
-                       Grid.Row="1"
+                       
                        FontFamily="Comic Sans MS"
-                       TextAlignment="Right"
+                       TextAlignment="Left"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
-                       Text="Выберите тип сортировки:">
+                       >
             </TextBlock>
 
-            <ComboBox Width="225" 
-                      Panel.ZIndex="1" 
-                      Name="SortType"
-                      Grid.Row="1"
-                      FontFamily="Comic Sans MS"
-                     
+            <ComboBox Name="SortType"
+                      Width="225" 
+                      Panel.ZIndex="1"                                         
+                      FontFamily="Comic Sans MS"                    
                       VerticalAlignment="Center"
-                      HorizontalAlignment="Right"
+                      HorizontalAlignment="Left"
                       DisplayMemberPath="Name"
-                      Margin="0,0,25,0"/>
+                      Margin="100,0,25,0"/>
         </Grid>
 
         <TextBox x:Name="txtBox_Search" 
                  Panel.ZIndex="1" 
-                 Margin="230,15,0,15" 
+                 Margin="335,10,0,15" 
                  Width="225" 
-                 Height="22" 
+                 Height="25" 
                  HorizontalAlignment="Left" 
                  Background="White" 
                  BorderBrush="White" 
@@ -89,49 +67,48 @@
         <CheckBox x:Name="CheckActual" 
                   Panel.ZIndex="1"
                   Margin="10"
-                  FontFamily="Comic Sans MS" 
-                 
-                  Grid.Row="1"
-                  
-                  Content="Показывать только акутальные туры"
+                  FontFamily="Comic Sans MS"               
+                  Grid.Row="1"               
+                  Content="Показывать только активные посылки"
                   HorizontalAlignment="Right"
                   VerticalAlignment="Top"/>
 
         <Label Content="Пользователь:" 
                Width="100" 
                Height="30" 
-               Background="#FF445C98" 
+               Background="#FF96C355" 
                FontFamily="Comic Sans MS" 
+               FontSize="12"
                FontWeight="Bold" 
-               Margin="0,5,206,5" 
-               HorizontalAlignment="Right" Panel.ZIndex="1"/>
+               Margin="0,5,120,5" 
+               HorizontalAlignment="Right" 
+               Panel.ZIndex="1"/>
 
-        <TextBox x:Name="textBox_LogInName" 
-                 Width="211" 
-                 Background="#FF445C98" 
+        <TextBox x:Name="textBox_LogInName"                
+                 Background="#FF96C355" 
                  FontFamily="Comic Sans MS" 
                  FontWeight="Black" 
                  HorizontalAlignment="Right" 
-                 BorderBrush="#FF445C98" 
+                 BorderBrush="#FF96C355" 
                  TextAlignment="Center"
-                 SelectionBrush="#FF445C98" 
+                 SelectionBrush="#FF96C355" 
                  IsEnabled="False" 
                  Text="Имя пользователя" 
                  HorizontalContentAlignment="Left" 
                  VerticalContentAlignment="Center" 
-                 Margin="0,1,10,5" 
+                 Margin="0,0,10,0" 
                  Panel.ZIndex="1"/>
 
-        <Rectangle Fill="#FFFAC716" 
-                   Stroke="#FFFAC716" 
+        <Rectangle Fill="#FF61A342" 
+                   Stroke="#FF61A342" 
                    Grid.Row="1"/>
 
-        <Rectangle Fill="#FFBAE3E8" 
-                   Stroke="#FFBAE3E8" 
-                   Grid.Row="3"/>
+        <Rectangle Fill="#FF96C355" 
+                   Stroke="#FF96C355"/>
 
-        <Rectangle Fill="#FF445C98" 
-                   Stroke="#FF445C98"/>
+        <Rectangle Fill="#FF96C355" 
+                   Stroke="#FF96C355"
+                   Grid.Row="3"/>
 
         <Button x:Name="btn_Add" 
                 Content="Добавить" 

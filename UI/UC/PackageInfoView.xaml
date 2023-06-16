@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ListView Grid.Row="1" Name="ViewTours" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
+        <ListView Grid.Row="1" Name="ViewPackages" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
@@ -16,54 +16,36 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderThickness="2" BorderBrush="#FFFAC716" CornerRadius="15">
-                        <Grid Margin="10" Width="550">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="50*"/>
-                                <ColumnDefinition Width="100*"/>
-                            </Grid.ColumnDefinitions>
+                    <Border BorderThickness="2" BorderBrush="#FF96C355" CornerRadius="15">
+                        <Grid Margin="10" Width="610">
+                            
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="85"/>
-                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
                                 <RowDefinition Height="auto"/>
                                 <RowDefinition Height="auto"/>
                             </Grid.RowDefinitions>
 
 
-
-                            <TextBlock Text="{Binding Name}"  
-                                   Style="{StaticResource TextBlock}"
-                                   HorizontalAlignment="Center" 
-                                   VerticalAlignment="Center" 
-                                   TextAlignment="Center" 
-                                   TextWrapping="Wrap" 
-                                   Margin="5 5 5 10"
-                                   FontSize="24" 
-                                   Grid.Row="0"
-                                   Grid.Column="1"/>
-
-                            <TextBlock Text="{Binding Price, StringFormat={}{0:N0} РУБ}"
-                                   Style="{StaticResource TextBlock}"
-                                   HorizontalAlignment="Center"                                 
-                                   Margin="5 5 5 15" 
-                                   FontSize="26" 
-                                   FontWeight="Bold"
-                                   Grid.Row="1"
-                                   Grid.Column="1"/>
-
-                            <TextBlock Text="{Binding TicketCount, StringFormat={}Билетов осталось: {0}}"
-                                   Style="{StaticResource TextBlock}"
-                                   Margin="5"
-                                   FontSize="14" 
-                                   HorizontalAlignment="Right" 
-                                   Grid.Row="2"
-                                   Grid.Column="1"/>
-
-                            <TextBlock Text="{Binding ActualText}"
-                                   Style="{StaticResource TextBlock}"
-                                   Margin="5"
+                            <TextBlock Text="{Binding Pakage_Number, StringFormat={}Номер посылки: {0}}"  
+                                  Style="{StaticResource TextBlock}"
                                    HorizontalAlignment="Left"                                 
-                                   FontSize="14" 
+                                   Margin="5"                                  
+                                   FontSize="24" 
+                                   Grid.Row="0"/>
+
+                            <TextBlock Text="{Binding Sender, StringFormat={}Отправитель: {0}}"
+                                   Style="{StaticResource TextBlock}"
+                                   HorizontalAlignment="Left"                                 
+                                   Margin="5" 
+                                   FontSize="18" 
+                                   Grid.Row="1"/>
+
+                            <TextBlock Text="{Binding Recipient, StringFormat={}Получатель: {0}}"
+                                   Style="{StaticResource TextBlock}"
+                                   HorizontalAlignment="Left"                                 
+                                   Margin="5,0,0,15" 
+                                   FontSize="18" 
                                    Grid.Row="2"
                                    Grid.Column="1"/>
 
@@ -72,8 +54,8 @@
                                     Grid.Column="0"
                                     Content="Редактировать" 
                                     Style="{StaticResource buttonStyle}" 
-                                    Height="35" 
-                                    Width="120"                                 
+                                    Height="45"
+                                    Width="200"
                                     HorizontalAlignment="Center"/>
                         </Grid>
                     </Border>

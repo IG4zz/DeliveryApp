@@ -20,12 +20,6 @@
 
         <Image Panel.ZIndex="1" Source="/Resources/logo.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="120" Width="120"/>
 
-
-        <Rectangle Fill="#FF96C355" 
-                   Stroke="#FF96C355" 
-                   Grid.Row="2" 
-                   Grid.ColumnSpan="3"/>
-
         <Rectangle Fill="#FF96C355" 
                    Stroke="#FF96C355" 
                    Grid.ColumnSpan="3"/>
@@ -72,13 +66,13 @@
             <Button x:Name="btn_GetPackages" 
                     Content="Посылки"
                     FontSize="18"                                  
-                    Style="{StaticResource buttonStyle}" 
-                    Click="btn_GetTours_Click"/>
+                    Style="{StaticResource buttonStyle}" Click="btn_GetPackages_Click" 
+                    />
 
             <Button x:Name="btn_Movings"
                     Style="{StaticResource buttonStyle}" 
-                    Click="btn_Hotels_Click" 
-                    FontSize="18">
+                  
+                    FontSize="18" Click="btn_Movings_Click">
                 
                 <TextBlock TextAlignment="Center"> Действия <LineBreak/> с посылками</TextBlock>
             </Button>
