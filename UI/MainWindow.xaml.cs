@@ -24,5 +24,30 @@ namespace DeliveryApp.UI
         {
             InitializeComponent();
         }
+
+        private void btn_GetTours_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Hotels_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_TourOrders_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Clients_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

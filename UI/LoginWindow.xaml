@@ -14,7 +14,7 @@
             <RowDefinition Height="80*"/>
         </Grid.RowDefinitions>
 
-        <Image Panel.ZIndex="1" Source="/Resources/logo.png" HorizontalAlignment="Left"  Width="88"/>
+        <Image Panel.ZIndex="1" Source="/Resources/logo.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="120" Width="120"/>
 
         <Rectangle Fill="#FF96C355" 
                    Stroke="#FF96C355"/>
@@ -74,12 +74,11 @@
 
             <Button x:Name="btn_LogIn" 
                     Content="Войти" 
+                    Style="{StaticResource buttonStyle}"
                     Width="90" 
-                    Height="30"  
-                    Margin="2" 
+                    Height="30"                    
                     FontSize="15" 
-                    Click="btn_LogIn_Click" 
-                    />
+                    Click="btn_LogIn_Click"/>
 
         </StackPanel>
 

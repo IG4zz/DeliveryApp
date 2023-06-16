@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-
 using DeliveryApp.DBEntities;
+using DeliveryApp.Libs;
+
 
 namespace DeliveryApp.UI
 {
@@ -18,7 +16,7 @@ namespace DeliveryApp.UI
         {
             InitializeComponent();
         }
-
+        
         private void checkBox_ShowPassword_Click(object sender, RoutedEventArgs e)
         {
             if (checkBox_ShowPassword.IsChecked == true)
@@ -38,25 +36,21 @@ namespace DeliveryApp.UI
 
         private void btn_LogIn_Click(object sender, RoutedEventArgs e)
         {
-            bool loginStatus = false;
             MainWindow mainWindow = new MainWindow();
             try
             {
-                foreach (Users user in Delivery_DBEntities.GetContext().Users.Where(c => c.Login.Equals(textBox_Login.Text) && c.Password.Equals(pswrdBox_Login.Password)))
-                {
-                    loginStatus = true;
-                }
-
-                if (loginStatus == true)
-                {
-                    Users user = Delivery_DBEntities.GetContext().Users.FirstOrDefault(c => c.Login.Equals(textBox_Login.Text));
-                    string currentUser = user.Login;
-                    mainWindow.Show();
-                    this.Close();
-                }
-                else
+                User currentUser = Delivery_DBEntities.GetContext().Users.FirstOrDefault(p => p.Login == textBox_Login.Text && (p.Password == pswrdBox_Login.Password || p.Password == textBox_PasswordShow.Text));
+                if (currentUser == null)
                 {
                     MessageBox.Show("Введен неверный логин или пароль", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+                else
+                {
+                    SaveEntryInfo.SaveLoginHistory(currentUser.User_ID, DateTime.Now);
+                    mainWindow.textBox_LogInName.Text = currentUser.Login;
+                    mainWindow.Show();
+                    this.Close();
                 }
             }
             catch (Exception)

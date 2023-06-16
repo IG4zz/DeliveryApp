@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "D:\Program Files x86\023_01\DeliveryApp\DBEntities\Delivery_DBEntities.edmx" включено. 
+﻿// Создание кода T4 для модели "D:\Program Files x86\023_01\DeliveryApp\DBEntities\DeliveryEntities.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

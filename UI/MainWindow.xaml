@@ -5,8 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeliveryApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Ямщик - Главное окно" Height="450" Width="800" MaxWidth="800" MaxHeight="450" MinWidth="800" MinHeight="450" WindowStartupLocation="CenterScreen" Icon="/Resources/logo.png" WindowStyle="ToolWindow">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+
+        <Image Panel.ZIndex="1" Source="/Resources/logo.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="120" Width="120"/>
+
+
+        <Rectangle Fill="#FF96C355" 
+                   Stroke="#FF96C355" 
+                   Grid.Row="2" 
+                   Grid.ColumnSpan="3"/>
+
+        <Rectangle Fill="#FF96C355" 
+                   Stroke="#FF96C355" 
+                   Grid.ColumnSpan="3"/>
+
+        <Label Content="Пользователь:" 
+               Grid.Column="2" 
+               Width="100" 
+               Height="30" 
+               Background="#FF96C355" 
+               FontFamily="Comic Sans MS" 
+               FontWeight="Bold" 
+               Margin="0,5,206,5" 
+               HorizontalAlignment="Right"/>
+
+        <TextBox x:Name="textBox_LogInName" 
+                 Grid.Column="2" 
+                 Width="211" 
+                 Background="#FF96C355" 
+                 FontFamily="Comic Sans MS" 
+                 FontWeight="Black" 
+                 HorizontalAlignment="Right" 
+                 BorderBrush="#FF96C355" 
+                 TextAlignment="Center"
+                 SelectionBrush="#FF96C355" 
+                 IsEnabled="False" 
+                 Text="Имя пользователя" 
+                 HorizontalContentAlignment="Left" 
+                 VerticalContentAlignment="Center" 
+                 Margin="0,1,10,5"/>
+
+        <Button x:Name="btn_Back" 
+                Content="Назад" 
+                Grid.Row="2" 
+                Height="40" 
+                Width="150" 
+                Margin="5" 
+                Style="{StaticResource buttonStyle}" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" 
+                Click="btn_Back_Click"/>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="5">
+
+            <Button x:Name="btn_GetPackages" 
+                    Content="Посылки"
+                    FontSize="18"                                  
+                    Style="{StaticResource buttonStyle}" 
+                    Click="btn_GetTours_Click"/>
+
+            <Button x:Name="btn_Movings"
+                    Style="{StaticResource buttonStyle}" 
+                    Click="btn_Hotels_Click" 
+                    FontSize="18">
+                
+                <TextBlock TextAlignment="Center"> Действия <LineBreak/> с посылками</TextBlock>
+            </Button>
+
+        </StackPanel>
+
     </Grid>
 </Window>

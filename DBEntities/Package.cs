@@ -12,10 +12,10 @@ namespace DeliveryApp.DBEntities
     using System;
     using System.Collections.Generic;
     
-    public partial class Packages
+    public partial class Package
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Packages()
+        public Package()
         {
             this.Package_Movings = new HashSet<Package_Movings>();
         }

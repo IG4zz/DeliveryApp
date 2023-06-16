@@ -12,14 +12,12 @@ namespace DeliveryApp.DBEntities
     using System;
     using System.Collections.Generic;
     
-    public partial class Package_Movings
+    public partial class sysdiagram
     {
-        public int Move_ID { get; set; }
-        public int Package_ID { get; set; }
-        public int MoveType_ID { get; set; }
-        public System.DateTime MoveDate { get; set; }
-    
-        public virtual Move_Types Move_Types { get; set; }
-        public virtual Package Package { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -17,28 +17,28 @@ namespace DeliveryApp.DBEntities
     {
         private static Delivery_DBEntities _context;
 
-        public Delivery_DBEntities()
-            : base("name=Delivery_DBEntities")
-        {
-        }
-
         public static Delivery_DBEntities GetContext()
         {
             if (_context == null)
                 _context = new Delivery_DBEntities();
             return _context;
         }
-
+        public Delivery_DBEntities()
+            : base("name=Delivery_DBEntities")
+        {
+        }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<EntryHistory> EntryHistories { get; set; }
         public virtual DbSet<Move_Types> Move_Types { get; set; }
         public virtual DbSet<Package_Movings> Package_Movings { get; set; }
-        public virtual DbSet<Packages> Packages { get; set; }
-        public virtual DbSet<Roles> Roles { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Package> Packages { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

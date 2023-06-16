@@ -67,6 +67,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UI\PackageInfoWindow.xaml.cs">
+      <DependentUpon>PackageInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UC\PackageInfoView.xaml.cs">
+      <DependentUpon>PackageInfoView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Styles\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UI\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -79,40 +89,43 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBEntities\Delivery_DBEntities.Context.cs">
+    <Compile Include="DBEntities\DeliveryEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Delivery_DBEntities.Context.tt</DependentUpon>
+      <DependentUpon>DeliveryEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBEntities\Delivery_DBEntities.cs">
+    <Compile Include="DBEntities\DeliveryEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Delivery_DBEntities.tt</DependentUpon>
+      <DependentUpon>DeliveryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBEntities\Delivery_DBEntities.Designer.cs">
+    <Compile Include="DBEntities\DeliveryEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Delivery_DBEntities.edmx</DependentUpon>
+      <DependentUpon>DeliveryEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DBEntities\EntryHistory.cs">
+      <DependentUpon>DeliveryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DBEntities\Move_Types.cs">
-      <DependentUpon>Delivery_DBEntities.tt</DependentUpon>
+      <DependentUpon>DeliveryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBEntities\Packages.cs">
-      <DependentUpon>Delivery_DBEntities.tt</DependentUpon>
+    <Compile Include="DBEntities\Package.cs">
+      <DependentUpon>DeliveryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DBEntities\Package_Movings.cs">
-      <DependentUpon>Delivery_DBEntities.tt</DependentUpon>
+      <DependentUpon>DeliveryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBEntities\Roles.cs">
-      <DependentUpon>Delivery_DBEntities.tt</DependentUpon>
+    <Compile Include="DBEntities\Role.cs">
+      <DependentUpon>DeliveryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBEntities\sysdiagrams.cs">
-      <DependentUpon>Delivery_DBEntities.tt</DependentUpon>
+    <Compile Include="DBEntities\sysdiagram.cs">
+      <DependentUpon>DeliveryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBEntities\Users.cs">
-      <DependentUpon>Delivery_DBEntities.tt</DependentUpon>
+    <Compile Include="DBEntities\User.cs">
+      <DependentUpon>DeliveryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Libs\Class1.cs" />
+    <Compile Include="Libs\SaveEntryInfo.cs" />
     <Compile Include="UI\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -120,6 +133,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\PackageInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\UC\PackageInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -139,12 +160,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DBEntities\Delivery_DBEntities.edmx">
+    <EntityDeploy Include="DBEntities\DeliveryEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Delivery_DBEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>DeliveryEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DBEntities\Delivery_DBEntities.edmx.diagram">
-      <DependentUpon>Delivery_DBEntities.edmx</DependentUpon>
+    <None Include="DBEntities\DeliveryEntities.edmx.diagram">
+      <DependentUpon>DeliveryEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -158,24 +179,23 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Styles\" />
-    <Folder Include="UI\UC\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DBEntities\Delivery_DBEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Delivery_DBEntities.edmx</DependentUpon>
-      <LastGenOutput>Delivery_DBEntities.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DBEntities\Delivery_DBEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Delivery_DBEntities.edmx</DependentUpon>
-      <LastGenOutput>Delivery_DBEntities.cs</LastGenOutput>
-    </Content>
     <Resource Include="logo.ico" />
     <Resource Include="Resources\logo.ico" />
     <Resource Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DBEntities\DeliveryEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DeliveryEntities.edmx</DependentUpon>
+      <LastGenOutput>DeliveryEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DBEntities\DeliveryEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DeliveryEntities.edmx</DependentUpon>
+      <LastGenOutput>DeliveryEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
