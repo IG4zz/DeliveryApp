@@ -21,11 +21,18 @@ namespace DeliveryApp.DBEntities
         }
     
         public int Package_ID { get; set; }
-        public string Pakage_Number { get; set; }
+        public string Package_Number { get; set; }
         public string Sender { get; set; }
         public string Recipient { get; set; }
         public bool isActive { get; set; }
-    
+        public string isActiveText
+        {
+            get
+            {
+                return (isActive) ? "Актуально" : "Завершено";
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Package_Movings> Package_Movings { get; set; }
     }

@@ -70,8 +70,7 @@
                     />
 
             <Button x:Name="btn_Movings"
-                    Style="{StaticResource buttonStyle}" 
-                  
+                    Style="{StaticResource buttonStyle}"                  
                     FontSize="18" Click="btn_Movings_Click">
                 
                 <TextBlock TextAlignment="Center"> Действия <LineBreak/> с посылками</TextBlock>

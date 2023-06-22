@@ -67,28 +67,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UI\PackageInfoWindow.xaml.cs">
-      <DependentUpon>PackageInfoWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UC\PackageInfoView.xaml.cs">
-      <DependentUpon>PackageInfoView.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Styles\Styles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UI\LoginWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DBEntities\DeliveryEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -124,6 +102,37 @@
     </Compile>
     <Compile Include="DBEntities\User.cs">
       <DependentUpon>DeliveryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Libs\Issue.cs" />
+    <Compile Include="Libs\SortTypes.cs" />
+    <Compile Include="UI\AddEditPackageWindow.xaml.cs">
+      <DependentUpon>AddEditPackageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PackageInfoWindow.xaml.cs">
+      <DependentUpon>PackageInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UC\PackageInfoView.xaml.cs">
+      <DependentUpon>PackageInfoView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Styles\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AddEditPackageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Libs\SaveEntryInfo.cs" />
     <Compile Include="UI\LoginWindow.xaml.cs">
@@ -179,7 +188,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="logo.ico" />
     <Resource Include="Resources\logo.ico" />

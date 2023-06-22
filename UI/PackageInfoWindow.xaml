@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DeliveryApp.UI"
         xmlns:uc="clr-namespace:DeliveryApp.UI.UC"
         mc:Ignorable="d"
-        Title="Ямщик-Посылки" Height="550" Width="800"  MinWidth="800" MinHeight="450" MaxWidth="1340" MaxHeight="912" BorderBrush="#FF0DBEDA" WindowStartupLocation="CenterScreen" Icon="/Resources/logo.png" WindowStyle="ToolWindow">
+        Title="Ямщик-Посылки" Height="550" Width="800"  MinWidth="800" MinHeight="450" MaxWidth="1340" MaxHeight="912" BorderBrush="#FF0DBEDA" WindowStartupLocation="CenterScreen" Icon="/Resources/logo.png" WindowStyle="ToolWindow" Activated="Window_Activated">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -33,8 +33,7 @@
           
             <TextBlock Text="Упорядочить по"
                        Panel.ZIndex="1"
-                       Width="155"
-                       
+                       Width="155"                     
                        FontFamily="Comic Sans MS"
                        TextAlignment="Left"
                        VerticalAlignment="Center"
@@ -49,7 +48,8 @@
                       VerticalAlignment="Center"
                       HorizontalAlignment="Left"
                       DisplayMemberPath="Name"
-                      Margin="100,0,25,0"/>
+                      Margin="100,0,25,0" 
+                      SelectionChanged="SortType_SelectionChanged"/>
         </Grid>
 
         <TextBox x:Name="txtBox_Search" 
@@ -62,7 +62,7 @@
                  BorderBrush="White" 
                  
                  FontFamily="Comic Sans MS" 
-                 VerticalContentAlignment="Center"/>
+                 VerticalContentAlignment="Center" TextChanged="txtBox_Search_TextChanged"/>
 
         <CheckBox x:Name="CheckActual" 
                   Panel.ZIndex="1"
@@ -71,7 +71,7 @@
                   Grid.Row="1"               
                   Content="Показывать только активные посылки"
                   HorizontalAlignment="Right"
-                  VerticalAlignment="Top"/>
+                  VerticalAlignment="Top" Checked="CheckActual_Checked" Unchecked="CheckActual_Unchecked"/>
 
         <Label Content="Пользователь:" 
                Width="100" 
@@ -80,7 +80,7 @@
                FontFamily="Comic Sans MS" 
                FontSize="12"
                FontWeight="Bold" 
-               Margin="0,5,120,5" 
+               Margin="0,5,110,5" 
                HorizontalAlignment="Right" 
                Panel.ZIndex="1"/>
 
@@ -96,7 +96,7 @@
                  Text="Имя пользователя" 
                  HorizontalContentAlignment="Left" 
                  VerticalContentAlignment="Center" 
-                 Margin="0,0,10,0" 
+                 Margin="0,0,0,2" 
                  Panel.ZIndex="1"/>
 
         <Rectangle Fill="#FF61A342" 
@@ -120,8 +120,9 @@
                 Style="{StaticResource buttonStyle}" 
                 HorizontalAlignment="Right" 
                 VerticalAlignment="Center" 
-                />
+                Click="btn_Add_Click"/>
 
+        
         <Button x:Name="btn_Back" 
                 Content="Назад" 
                 Grid.Row="3" 
