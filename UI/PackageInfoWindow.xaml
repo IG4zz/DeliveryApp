@@ -122,7 +122,19 @@
                 VerticalAlignment="Center" 
                 Click="btn_Add_Click"/>
 
-        
+        <Button x:Name="btn_Delete" 
+                Content="Удалить" 
+                Grid.Row="3"   
+                FontSize="18"
+                Height="35" 
+                Width="100" 
+                Margin="5,5,115,5" 
+                Style="{StaticResource buttonStyle}" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Center" 
+                Click="btn_Delete_Click"/>
+
+
         <Button x:Name="btn_Back" 
                 Content="Назад" 
                 Grid.Row="3" 

@@ -111,6 +111,9 @@
     <Compile Include="UI\PackageInfoWindow.xaml.cs">
       <DependentUpon>PackageInfoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\PackageMovingsInfoWindow.xaml.cs">
+      <DependentUpon>PackageMovingsInfoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\UC\PackageInfoView.xaml.cs">
       <DependentUpon>PackageInfoView.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UI\PackageInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PackageMovingsInfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

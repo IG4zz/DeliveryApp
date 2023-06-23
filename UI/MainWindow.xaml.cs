@@ -32,7 +32,10 @@ namespace DeliveryApp.UI
 
         private void btn_GetPackages_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
             PackageInfoWindow packageInfoWindow = new PackageInfoWindow();
+            packageInfoWindow.textBox_LogInName.Text = mainWindow.textBox_LogInName.Text;
+
             packageInfoWindow.Show();
             this.Close();
         }
