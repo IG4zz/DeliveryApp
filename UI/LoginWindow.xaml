@@ -35,9 +35,11 @@
 
             <TextBox x:Name="textBox_Login" 
                      Width="90" 
-                     Height="25" 
+                     Height="25"
+                     FontSize="18"
                      HorizontalAlignment="Center" 
-                     VerticalAlignment="Center" 
+                     VerticalAlignment="Center"
+                     FontFamily="Comic Sans MS"
                      Margin="2"/>
 
             <Label Content="Пароль:" 
@@ -51,13 +53,17 @@
                 </Grid.RowDefinitions>
 
                 <PasswordBox x:Name="pswrdBox_Login" 
-                         Width="90" 
+                         Width="90"                                                  
+                         FontSize="18"
+                         FontFamily="Comic Sans MS"
                          Height="25"/>
 
 
                 <TextBox x:Name="textBox_PasswordShow" 
                      Width="90" 
-                     Height="25"  
+                     Height="25" 
+                     FontSize="18"
+                     FontFamily="Comic Sans MS"
                      Visibility="Hidden"/>
 
             </Grid>

@@ -32,17 +32,18 @@ namespace DeliveryApp.UI
 
         private void btn_GetPackages_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
             PackageInfoWindow packageInfoWindow = new PackageInfoWindow();
-            packageInfoWindow.textBox_LogInName.Text = mainWindow.textBox_LogInName.Text;
-
+            packageInfoWindow.textBox_LogInName.Text = textBox_LogInName.Text;
             packageInfoWindow.Show();
             this.Close();
         }
 
         private void btn_Movings_Click(object sender, RoutedEventArgs e)
         {
-
+            PackageMovingsInfoWindow packageMovingsInfoWindow = new PackageMovingsInfoWindow();
+            packageMovingsInfoWindow.textBox_LogInName.Text = textBox_LogInName.Text;
+            packageMovingsInfoWindow.Show();
+            this.Close();
         }
     }
 }

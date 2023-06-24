@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DeliveryApp.UI"
         xmlns:uc="clr-namespace:DeliveryApp.UI.UC"
         mc:Ignorable="d"
-        Title="Ямщик-Посылки" Height="550" Width="800"  MinWidth="800" MinHeight="450" MaxWidth="1340" MaxHeight="912" BorderBrush="#FF0DBEDA" WindowStartupLocation="CenterScreen" Icon="/Resources/logo.png" WindowStyle="ToolWindow" Activated="Window_Activated">
+        Title="Ямщик-Посылки" Height="550" Width="800"  MinWidth="800" MinHeight="450" MaxWidth="1340" MaxHeight="912" WindowStartupLocation="CenterScreen" Icon="/Resources/logo.png" WindowStyle="ToolWindow" Activated="Window_Activated">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -62,7 +62,8 @@
                  BorderBrush="White" 
                  
                  FontFamily="Comic Sans MS" 
-                 VerticalContentAlignment="Center" TextChanged="txtBox_Search_TextChanged"/>
+                 VerticalContentAlignment="Center" 
+                 TextChanged="txtBox_Search_TextChanged"/>
 
         <CheckBox x:Name="CheckActual" 
                   Panel.ZIndex="1"
@@ -71,7 +72,9 @@
                   Grid.Row="1"               
                   Content="Показывать только активные посылки"
                   HorizontalAlignment="Right"
-                  VerticalAlignment="Top" Checked="CheckActual_Checked" Unchecked="CheckActual_Unchecked"/>
+                  VerticalAlignment="Top" 
+                  Checked="CheckActual_Checked" 
+                  Unchecked="CheckActual_Unchecked"/>
 
         <Label Content="Пользователь:" 
                Width="100" 
@@ -94,9 +97,9 @@
                  SelectionBrush="#FF96C355" 
                  IsEnabled="False" 
                  Text="Имя пользователя" 
-                 HorizontalContentAlignment="Left" 
+                 HorizontalContentAlignment="Center" 
                  VerticalContentAlignment="Center" 
-                 Margin="0,0,0,2" 
+                 Margin="0,0,40,3" 
                  Panel.ZIndex="1"/>
 
         <Rectangle Fill="#FF61A342" 
@@ -122,18 +125,6 @@
                 VerticalAlignment="Center" 
                 Click="btn_Add_Click"/>
 
-        <Button x:Name="btn_Delete" 
-                Content="Удалить" 
-                Grid.Row="3"   
-                FontSize="18"
-                Height="35" 
-                Width="100" 
-                Margin="5,5,115,5" 
-                Style="{StaticResource buttonStyle}" 
-                HorizontalAlignment="Right" 
-                VerticalAlignment="Center" 
-                Click="btn_Delete_Click"/>
-
 
         <Button x:Name="btn_Back" 
                 Content="Назад" 
@@ -144,7 +135,7 @@
                 FontSize="18"
                 Style="{StaticResource buttonStyle}" 
                 HorizontalAlignment="Left" 
-                VerticalAlignment="Center" 
+                VerticalAlignment="Center" Click="btn_Back_Click" 
                 />
     </Grid>
 </Window>

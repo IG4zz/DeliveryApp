@@ -5,8 +5,179 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeliveryApp.UI"
         mc:Ignorable="d"
-        Title="PackageMovingsInfoWindow" Height="450" Width="800">
+        Title="Ямщик-Дейсвтия с посылками" Height="450" Width="755" MinWidth="755" MinHeight="450" MaxWidth="890" MaxHeight="1040" WindowStartupLocation="CenterScreen" Icon="/Resources/logo.png" WindowStyle="ToolWindow" Activated="Window_Activated" >
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Image Panel.ZIndex="2" Source="/Resources/logo.png"  Height="90" Width="90" Margin="0,10,0,0"  HorizontalAlignment="Left" VerticalAlignment="Center"  />
+
+        <Rectangle Fill="#FF96C355" 
+                   Stroke="#FF96C355" 
+                   Grid.Row="3" 
+                   Grid.ColumnSpan="3"/>
+
+        <Rectangle Fill="#FF96C355" 
+                   Stroke="#FF96C355" 
+                   Grid.ColumnSpan="3"/>
+
+        <Rectangle Fill="#FF61A342" 
+                   Stroke="#FF61A342" 
+                   Grid.Row="1"
+                   Grid.ColumnSpan="3"/>
+
+        <Grid Grid.Row="1" Width="410" Margin="5" Panel.ZIndex="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Номер посылки"
+                       Panel.ZIndex="1"
+                       Width="155"                     
+                       FontFamily="Comic Sans MS"
+                       TextAlignment="Left"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       >
+            </TextBlock>
+
+            <ComboBox Name="cmbBox_PackageNumbers"
+                      Width="225" 
+                      Panel.ZIndex="1"                                         
+                      FontFamily="Comic Sans MS"                    
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Left"
+                      Margin="100,0,25,0" 
+                      DisplayMemberPath="Package_Number" SelectionChanged="cmbBox_PackageNumbers_SelectionChanged"
+                     />
+
+            <TextBlock Text="Действие"
+                       Grid.Row="1"
+                       Panel.ZIndex="1"
+                       Width="155"                     
+                       FontFamily="Comic Sans MS"
+                       TextAlignment="Left"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" 
+                       Margin="0,0,190,0"
+                       >
+            </TextBlock>
+
+            <ComboBox Name="cmbBox_moveType"
+                      Grid.Row="1"
+                      Width="225" 
+                      Panel.ZIndex="1"                                         
+                      FontFamily="Comic Sans MS"                    
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Left"
+                      DisplayMemberPath="MoveType_Name"
+                      Margin="100,0,25,0" SelectionChanged="cmbBox_moveType_SelectionChanged"/>
+        </Grid>
+
+
+        <Label Content="Пользователь:" 
+               Grid.Column="2" 
+               Width="100" 
+               Height="30" 
+               Background="#FF96C355" 
+               FontFamily="Comic Sans MS" 
+               FontWeight="Bold"              
+               HorizontalAlignment="Center"/>
+
+        <TextBox x:Name="textBox_LogInName" 
+                 Grid.Column="2" 
+                 Width="150" 
+                 Background="#FF96C355" 
+                 FontFamily="Comic Sans MS" 
+                 FontWeight="Black" 
+                 HorizontalAlignment="Right" 
+                 BorderBrush="#FF96C355" 
+                 TextAlignment="Center"               
+                 IsEnabled="False" 
+                 Text="Имя пользователя" 
+                 HorizontalContentAlignment="Left" 
+                 VerticalContentAlignment="Center" 
+                 Margin="0,0,30,3"/>
+
+        <DataGrid x:Name="DGridPackageMovings" Grid.Row="2" Grid.ColumnSpan="2" AutoGenerateColumns="False" IsReadOnly="True" >
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="FontSize" Value="17"/>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontSize" Value="22"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер посылки" 
+                                    Binding="{Binding Package.Package_Number}" 
+                                    Width="auto"
+                                    MinWidth="200"/>
+
+                <DataGridTextColumn Header="Действие" 
+                                    Binding="{Binding Move_Types.MoveType_Name}" 
+                                    Width="auto"
+                                    MinWidth="100"/>
+
+                <DataGridTextColumn Header="Дата" 
+                                    Binding="{Binding MoveDate, StringFormat='{}{0:dd/MM/yyyy HH:mm}'}"
+                                    Width="275"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="btn_Back" 
+                Content="Назад" 
+                Grid.Row="3" 
+                Height="35" 
+                Width="100"  
+                Style="{StaticResource buttonStyle}" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" 
+                Click="btn_Back_Click"/>
+
+        <Button x:Name="btn_Add" 
+                Content="Добавить" 
+                Grid.Column="1"
+                Grid.Row="3" 
+                Height="35" 
+                Width="100"
+                Style="{StaticResource buttonStyle}" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Center" 
+                Click="btn_Add_Click"/>
+
+        <Button x:Name="btn_Delete" 
+                Content="Удалить" 
+                Grid.Column="1"
+                Grid.Row="3" 
+                Height="35" 
+                Width="100" 
+                Style="{StaticResource buttonStyle}" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" 
+                Click="btn_Delete_Click" Margin="0"
+               />
+
+        <Button x:Name="btn_Edit" 
+                Content="Редактировать" 
+                Grid.Row="3" 
+                Grid.Column="2" 
+                Height="35"               
+                Style="{StaticResource buttonStyle}" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Click="btn_Edit_Click" Margin="0" />
     </Grid>
 </Window>

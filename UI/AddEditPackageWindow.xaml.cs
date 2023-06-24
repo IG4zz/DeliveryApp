@@ -1,5 +1,6 @@
 ﻿using DeliveryApp.DBEntities;
 using System;
+using System.Linq;
 using System.Windows;
 
 
@@ -10,6 +11,7 @@ namespace DeliveryApp.UI
     /// </summary>
     public partial class AddEditPackageWindow : Window
     {
+        private bool canAdd;
         private Package currentPackage = new Package();
         public AddEditPackageWindow(Package selectedPackage)
         {
@@ -17,6 +19,10 @@ namespace DeliveryApp.UI
             if (selectedPackage != null)
             {
                 currentPackage = selectedPackage;
+            }
+            else
+            {
+                canAdd = true;
             }
 
             DataContext = currentPackage;
@@ -29,26 +35,46 @@ namespace DeliveryApp.UI
 
         private void btn_SaveChanges_Click(object sender, RoutedEventArgs e)
         {
-
-            if (currentPackage.Package_ID == 0)
+            if (txtBox_PackageNumber.Text.Length > 10)
             {
-                Delivery_DBEntities.GetContext().Packages.Add(currentPackage);
+                MessageBox.Show("Максимальная длинна номера посылки - 10", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            Package package = Delivery_DBEntities.GetContext().Packages.FirstOrDefault(p => p.Package_Number == txtBox_PackageNumber.Text);
+
+            if (canAdd)
+            {
+                if (package == null)
+                {
+                    currentPackage.isActive = true;
+                    Delivery_DBEntities.GetContext().Packages.Add(currentPackage);
+                }
+                else
+                {
+                    MessageBox.Show("Посылка с таким номером уже сущетсвует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }           
             }
 
             try
             {
-                if (MessageBox.Show("Вы действительно хотите добавить новые данные?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Вы действительно хотите сохранить новые данные?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes ||  package == null)
                 {
                     Delivery_DBEntities.GetContext().SaveChanges();
                     MessageBox.Show("Данные сохранены", "", MessageBoxButton.OK, MessageBoxImage.Information);
                     PackageInfoWindow packageInfoWindow = new PackageInfoWindow();
                     this.Close();
                 }
+                else
+                {
+                    MessageBox.Show("Посылка с таким номером уже сущетсвует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
             }
 
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Не все поля заполнены", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(ex.Message.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

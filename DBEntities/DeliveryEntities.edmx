@@ -27,14 +27,14 @@
           <Property Name="Move_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Package_ID" Type="int" Nullable="false" />
           <Property Name="MoveType_ID" Type="int" Nullable="false" />
-          <Property Name="MoveDate" Type="datetime" Nullable="false" />
+          <Property Name="MoveDate" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="Packages">
           <Key>
             <PropertyRef Name="Package_ID" />
           </Key>
-          <Property Name="Package_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Package_Number" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Package_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Sender" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Recipient" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="isActive" Type="bit" Nullable="false" />
@@ -89,8 +89,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Package_Movings_Packages">
-          <End Role="Packages" Type="Self.Packages" Multiplicity="1" />
+        <Association Name="FK_Package_Movings_Packages1">
+          <End Role="Packages" Type="Self.Packages" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Package_Movings" Type="Self.Package_Movings" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Packages">
@@ -129,7 +131,7 @@
             <End Role="Move_Types" EntitySet="Move_Types" />
             <End Role="Package_Movings" EntitySet="Package_Movings" />
           </AssociationSet>
-          <AssociationSet Name="FK_Package_Movings_Packages" Association="Self.FK_Package_Movings_Packages">
+          <AssociationSet Name="FK_Package_Movings_Packages1" Association="Self.FK_Package_Movings_Packages1">
             <End Role="Packages" EntitySet="Packages" />
             <End Role="Package_Movings" EntitySet="Package_Movings" />
           </AssociationSet>
@@ -167,20 +169,20 @@
           <Property Name="Move_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Package_ID" Type="Int32" Nullable="false" />
           <Property Name="MoveType_ID" Type="Int32" Nullable="false" />
-          <Property Name="MoveDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MoveDate" Type="DateTime" Nullable="false" Precision="7" />
           <NavigationProperty Name="Move_Types" Relationship="Self.FK_Package_Movings_Move_Types" FromRole="Package_Movings" ToRole="Move_Types" />
-          <NavigationProperty Name="Package" Relationship="Self.FK_Package_Movings_Packages" FromRole="Package_Movings" ToRole="Packages" />
+          <NavigationProperty Name="Package" Relationship="Self.FK_Package_Movings_Packages1" FromRole="Package_Movings" ToRole="Packages" />
         </EntityType>
         <EntityType Name="Package">
           <Key>
             <PropertyRef Name="Package_ID" />
           </Key>
-          <Property Name="Package_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Package_Number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Package_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Sender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Recipient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="isActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Package_Movings" Relationship="Self.FK_Package_Movings_Packages" FromRole="Packages" ToRole="Package_Movings" />
+          <NavigationProperty Name="Package_Movings" Relationship="Self.FK_Package_Movings_Packages1" FromRole="Packages" ToRole="Package_Movings" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -235,8 +237,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Package_Movings_Packages">
-          <End Role="Packages" Type="Self.Package" Multiplicity="1" />
+        <Association Name="FK_Package_Movings_Packages1">
+          <End Role="Packages" Type="Self.Package" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Package_Movings" Type="Self.Package_Movings" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Packages">
@@ -275,7 +279,7 @@
             <End Role="Move_Types" EntitySet="Move_Types" />
             <End Role="Package_Movings" EntitySet="Package_Movings" />
           </AssociationSet>
-          <AssociationSet Name="FK_Package_Movings_Packages" Association="Self.FK_Package_Movings_Packages">
+          <AssociationSet Name="FK_Package_Movings_Packages1" Association="Self.FK_Package_Movings_Packages1">
             <End Role="Packages" EntitySet="Packages" />
             <End Role="Package_Movings" EntitySet="Package_Movings" />
           </AssociationSet>
@@ -320,8 +324,8 @@
           <EntitySetMapping Name="Packages">
             <EntityTypeMapping TypeName="Delivery_DBModel.Package">
               <MappingFragment StoreEntitySet="Packages">
-                <ScalarProperty Name="Package_ID" ColumnName="Package_ID" />
                 <ScalarProperty Name="Package_Number" ColumnName="Package_Number" />
+                <ScalarProperty Name="Package_ID" ColumnName="Package_ID" />
                 <ScalarProperty Name="Sender" ColumnName="Sender" />
                 <ScalarProperty Name="Recipient" ColumnName="Recipient" />
                 <ScalarProperty Name="isActive" ColumnName="isActive" />

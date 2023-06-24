@@ -1,10 +1,6 @@
 ﻿using DeliveryApp.DBEntities;
 using DeliveryApp.Libs;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -22,15 +18,13 @@ namespace DeliveryApp.UI.UC
         }
 
         private void btn_IssuePackage_Click(object sender, RoutedEventArgs e)
-        {   
+        {
             if (MessageBox.Show("Вы уверены, что хотите выдать посылку?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-
                 Package selectedItem = ViewPackages.SelectedItem as Package;
                 if (selectedItem == null)
                 {
                     MessageBox.Show("Посылка не выбрана", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
-
                 }
                 else
                 {
@@ -41,14 +35,17 @@ namespace DeliveryApp.UI.UC
                     else
                     {
                         Issue.IssuePackage(selectedItem.Package_ID);
+                        PackageInfo.ViewPackages.ItemsSource = Delivery_DBEntities.GetContext().Packages.ToList();
+                        MessageBox.Show("Посылка выдана", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+
                     }
                 }
             }
         }
 
         private void btn_EditData_Click(object sender, RoutedEventArgs e)
-        {          
-            AddEditPackageWindow addEditPackageWindow = new AddEditPackageWindow((sender as Button).DataContext as Package);          
+        {
+            AddEditPackageWindow addEditPackageWindow = new AddEditPackageWindow((sender as Button).DataContext as Package);
             addEditPackageWindow.ShowDialog();
         }
     }

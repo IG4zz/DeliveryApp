@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8e3532d346374536b6c9c5e10df56c23" Name="Diagram1">
+      <Diagram DiagramId="54c0b86dc5a84de497b220bf6643fd9d" Name="Diagram1">
         <EntityTypeShape EntityType="Delivery_DBModel.EntryHistory" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Delivery_DBModel.Move_Types" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Delivery_DBModel.Package_Movings" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
@@ -14,7 +14,7 @@
         <EntityTypeShape EntityType="Delivery_DBModel.User" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="Delivery_DBModel.FK_EntryHistory_Users" ManuallyRouted="false" />
         <AssociationConnector Association="Delivery_DBModel.FK_Package_Movings_Move_Types" ManuallyRouted="false" />
-        <AssociationConnector Association="Delivery_DBModel.FK_Package_Movings_Packages" ManuallyRouted="false" />
+        <AssociationConnector Association="Delivery_DBModel.FK_Package_Movings_Packages1" ManuallyRouted="false" />
         <AssociationConnector Association="Delivery_DBModel.FK_Users_Roles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

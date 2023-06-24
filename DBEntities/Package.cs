@@ -20,8 +20,8 @@ namespace DeliveryApp.DBEntities
             this.Package_Movings = new HashSet<Package_Movings>();
         }
     
-        public int Package_ID { get; set; }
         public string Package_Number { get; set; }
+        public int Package_ID { get; set; }
         public string Sender { get; set; }
         public string Recipient { get; set; }
         public bool isActive { get; set; }

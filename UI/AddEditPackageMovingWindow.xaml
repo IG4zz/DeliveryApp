@@ -1,0 +1,110 @@
+﻿<Window  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeliveryApp.UI"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="DeliveryApp.UI.AddEditPackageMovingWindow"
+        mc:Ignorable="d"
+        Title="Ямщик" Height="450" Width="800" MinHeight="450" MinWidth="800" MaxHeight="450" MaxWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <Image Panel.ZIndex="1" Source="/Resources/logo.png" HorizontalAlignment="Left" Height="120" Width="120" Margin="0,-21,0,62" Grid.RowSpan="2" />
+
+        <Rectangle Fill="#FF61A342" 
+                   Stroke="#FF61A342" 
+                   Grid.ColumnSpan="3"/>
+
+        <TextBlock Text="Номер посылки" 
+                   Grid.Row="1" 
+                   Foreground="Black" 
+                   FontWeight="Bold" 
+                   FontFamily="Comic Sans MS" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+        <TextBlock Text="Действие" 
+                   Grid.Row="2" 
+                   Foreground="Black" 
+                   FontWeight="Bold" 
+                   FontFamily="Comic Sans MS" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"/>
+
+        <TextBlock Text="Дата" 
+                   Grid.Row="3" 
+                   Foreground="Black" 
+                   FontWeight="Bold" 
+                   FontFamily="Comic Sans MS" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"/>
+
+        <ComboBox x:Name="txtBox_PackageNumber" 
+                 Grid.Column="1" 
+                 Grid.Row="1" 
+                 Height="40" 
+                 Width="175"
+                 FontFamily="Comic Sans MS"
+                 Padding="10"
+                 HorizontalAlignment="Left" 
+                 DisplayMemberPath="Package_Number"
+                 SelectedItem="{Binding Package}"/>
+
+        <ComboBox x:Name="cmbBox_MoveType" 
+                 Grid.Row="2" 
+                 Grid.Column="1" 
+                 Height="40"
+                 Width="auto" 
+                 FontFamily="Comic Sans MS"
+                 HorizontalAlignment="Left" 
+                 Padding="10"                
+                 DisplayMemberPath="MoveType_Name"
+                 MinWidth="175"
+                 SelectedItem="{Binding Move_Types}"/>
+
+
+
+        <Button x:Name="btn_Back" 
+                Content="Назад" 
+                Grid.Row="5" 
+                Height="40" 
+                Width="145" 
+               
+                Style="{StaticResource buttonStyle}" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" 
+                Click="btn_Back_Click"/>
+
+        <Button x:Name="btn_SaveChanges" 
+                Content="Сохранить" 
+                Grid.Column="2" 
+                Grid.Row="4" 
+                Height="40" 
+                Width="140" 
+                Margin="5"
+                Style="{StaticResource buttonStyle}" 
+                HorizontalAlignment="Right"  
+                Click="btn_SaveChanges_Click"/>
+
+        <xctk:DateTimePicker x:Name="datetimePicker"  
+                Grid.Column="2" 
+                Grid.Row="3" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" 
+                Height="40"
+                Width="180" 
+                Text ="{Binding MoveDate}" 
+                TextAlignment="Center" 
+                ShowButtonSpinner="False"/>
+    </Grid>
+</Window>
