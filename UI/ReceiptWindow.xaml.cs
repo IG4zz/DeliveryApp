@@ -9,9 +9,16 @@ namespace DeliveryApp.UI
     /// </summary>
     public partial class ReceiptWindow : Window
     {
+        public string _packageNumber;
+        public string _sender;
+        public string _recepient;
         public ReceiptWindow(Package package)
         {
             InitializeComponent();
+
+            _packageNumber = package.Package_Number;
+            _sender = package.Sender;
+            _recepient = package.Recipient;
 
             PackageNumberBox.Text = package.Package_Number;
             SenderBox.Text = package.Sender;

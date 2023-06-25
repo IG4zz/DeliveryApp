@@ -4,9 +4,19 @@ using System.Linq;
 
 namespace DeliveryApp.Libs
 {
-    class Issue
+    /// <summary>
+    /// Класс Issue
+    /// Отвечает за выдачу посылок
+    /// </summary>
+    public class Issue
     {
-        internal static void IssuePackage(int package_ID)
+        /// <summary>
+        /// Метод IssuePackage
+        /// Создает запись с типом "Выдана получателю"
+        /// и устанавливает значение isActive у Посылки в 0
+        /// </summary>
+        /// <param name="package_ID"> Идентификатор посылки </param>
+        public static void IssuePackage(int package_ID)
         {
             using (var context = new Delivery_DBEntities())
             {

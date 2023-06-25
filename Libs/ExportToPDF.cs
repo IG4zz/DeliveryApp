@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
@@ -15,8 +11,18 @@ using System.Diagnostics;
 
 namespace DeliveryApp.Libs
 {
+    /// <summary>
+    /// Класс ExportToPDF
+    /// Отвечает за сохранение дпнных DataGrid в PDF файл
+    /// </summary>
     class ExportToPDF
     {
+        /// <summary>
+        /// Метод ExportToPdf
+        /// Экспортирует DataGrid в PDF файл
+        /// </summary>
+        /// <param name="grid"> Выбранная область DataGrid </param>
+        /// <param name="pathOfPdfWithFileName"> Путь к созданному PDF файлу </param>
         public static void ExportToPdf(DataGrid grid, string pathOfPdfWithFileName)
         {
             PdfPTable table = new PdfPTable(grid.Columns.Count);
@@ -61,6 +67,13 @@ namespace DeliveryApp.Libs
             }
         }
 
+        /// <summary>
+        /// Метод FindVisualChild
+        /// Отвечает за поиск ячеек DataGrid
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         private static T FindVisualChild<T>(DependencyObject obj) where T : DependencyObject
         {
             for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)

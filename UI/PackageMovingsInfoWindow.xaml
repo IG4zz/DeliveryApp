@@ -121,16 +121,19 @@
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер посылки" 
+                                    FontFamily="Comic Sans MS"
                                     Binding="{Binding Package.Package_Number}" 
                                     Width="auto"
                                     MinWidth="200"/>
 
                 <DataGridTextColumn Header="Действие" 
+                                    FontFamily="Comic Sans MS"
                                     Binding="{Binding Move_Types.MoveType_Name}" 
                                     Width="auto"
                                     MinWidth="100"/>
 
                 <DataGridTextColumn Header="Дата" 
+                                    FontFamily="Comic Sans MS"
                                     Binding="{Binding MoveDate, StringFormat='{}{0:dd/MM/yyyy HH:mm}'}"
                                     Width="275"/>
 

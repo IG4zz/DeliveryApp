@@ -7,8 +7,18 @@ using System.Windows.Media.Imaging;
 
 namespace DeliveryApp.Libs
 {
+    /// <summary>
+    /// Класс PrintWindow
+    /// Отвечает за сохранение окна в PDF файл
+    /// </summary>
     class PrintWindow
     {
+        /// <summary>
+        /// Метод GetImage
+        /// Получает изображение окна приложения
+        /// </summary>
+        /// <param name="view"> Выбранное окно </param>
+        /// <returns></returns>
         public static RenderTargetBitmap GetImage(UIElement view)
         {
             Size size = new Size(view.RenderSize.Width, view.RenderSize.Height);
@@ -32,6 +42,12 @@ namespace DeliveryApp.Libs
             return result;
         }
 
+        /// <summary>
+        /// Метод createPdfFromImage
+        /// Создает файл PDF ил выбранного файла PNG
+        /// </summary>
+        /// <param name="imageFile"> Файл PNG </param>
+        /// <param name="pdfFile"> Файл PDf </param>
         public static void createPdfFromImage(string imageFile, string pdfFile)
         {
             using (var document = new iTextSharp.text.Document(iTextSharp.text.PageSize.LETTER.Rotate(), 0, 0, 0, 0))
@@ -57,7 +73,13 @@ namespace DeliveryApp.Libs
                 }
             }
         }
-       
+
+        /// <summary>
+        /// Метод SaveAsPng
+        /// Сохраняет изображение в файл PNG
+        /// </summary>
+        /// <param name="src"> Источник изображения </param>
+        /// <param name="targetFile"> Итоговый файл </param>
         public static void SaveAsPng(RenderTargetBitmap src, string targetFile)
         {
             PngBitmapEncoder encoder = new PngBitmapEncoder();
