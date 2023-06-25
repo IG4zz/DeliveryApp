@@ -30,7 +30,9 @@ namespace DeliveryApp.UI
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
         }
 
         private void btn_GetPackages_Click(object sender, RoutedEventArgs e)
