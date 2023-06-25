@@ -125,7 +125,18 @@
                 VerticalAlignment="Center" 
                 Click="btn_Add_Click"/>
 
-
+        <Button x:Name="btn_toPDF" 
+                Content="Сохранить в PDF" 
+                Grid.Row="3"   
+                FontSize="18"
+                Height="35" 
+                Margin="5,5,120,5" 
+                Style="{StaticResource buttonStyle}" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Center" 
+                Click="btn_toPDF_Click" 
+                />
+      
         <Button x:Name="btn_Back" 
                 Content="Назад" 
                 Grid.Row="3" 

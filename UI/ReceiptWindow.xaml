@@ -1,0 +1,123 @@
+﻿<Window x:Class="DeliveryApp.UI.ReceiptWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeliveryApp.UI"
+        mc:Ignorable="d"
+        Title="ReceiptWindow" Height="450" Width="800" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Image Panel.ZIndex="1" Source="/Resources/logo.png" Grid.RowSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="120" Margin="0,-15,0,0"/>
+        <Rectangle Panel.ZIndex="1" Fill="#FF96C355" Grid.ColumnSpan="3" Margin="0,-27,0,27"/>
+        <Border  Background="#FF96C355" BorderThickness="1" BorderBrush="#FF96C355" Grid.ColumnSpan="3" Grid.RowSpan="2" >
+            <TextBlock Grid.Column="1"
+                   Grid.RowSpan="2"
+                   Panel.ZIndex="1"
+                   FontWeight="Bold"  
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center">
+            
+                  <Run Text="Накладная на посылку" 
+                       FontSize="18"/>
+
+        </TextBlock>
+
+        </Border>
+
+        
+        <Grid ShowGridLines="False"
+              Grid.Row="3"
+              Grid.RowSpan="4"
+              Grid.ColumnSpan="3"
+              Margin="10"
+              HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+       
+            <Border  Background="#FF96C355" BorderThickness="1" BorderBrush="Black" >
+                <TextBlock Text="Номер посылки"
+                           Height="20"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           Margin="5"/>
+            </Border>
+            <Border Background="#FF96C355" Grid.Row="1" BorderThickness="1" BorderBrush="Black"  >
+                <TextBlock Text="Отправитель"
+                           Height="20"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           Margin="5"/>
+            </Border>
+
+            <Border Background="#FF96C355" Grid.Row="2" BorderThickness="1" BorderBrush="Black"  >
+                <TextBlock Text="Получатель"
+                           Height="20"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           Margin="5"/>
+            </Border>
+            
+            
+            <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1">
+                <TextBlock x:Name="PackageNumberBox"
+                           Text=""
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           Margin="5"/>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1" Grid.Row="1">
+                <TextBlock x:Name="SenderBox"
+                            Text=""
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           Margin="5"/>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1" Grid.Row="2">
+                <TextBlock x:Name="RecepientBox"
+                            Text=""
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           Margin="5"/>
+            </Border>
+                    
+        </Grid>
+
+        <TextBlock Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Run Text="_____________________________"/>
+            <LineBreak/><Run Text="     (подпись Отправителя)"/>
+        </TextBlock>
+        
+        <TextBlock Grid.Row="8" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Run Text="____________________________"/>
+            <LineBreak/>
+            <Run Text="     (подпись Получателя)" />
+        </TextBlock>
+    </Grid>
+</Window>

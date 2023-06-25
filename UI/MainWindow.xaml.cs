@@ -1,9 +1,12 @@
-﻿using System;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using DeliveryApp.DBEntities;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -19,10 +22,10 @@ namespace DeliveryApp.UI
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {    
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }   
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)

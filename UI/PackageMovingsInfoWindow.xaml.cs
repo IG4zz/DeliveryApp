@@ -131,6 +131,11 @@ namespace DeliveryApp.UI
         {
             UpdatePackageMovings();
         }
-       
+
+        private void btn_toPDF_Click(object sender, RoutedEventArgs e)
+        {
+            ExportToPDF.ExportToPdf(DGridPackageMovings, "Test.pdf");
+
+        }
     }
 }

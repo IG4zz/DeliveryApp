@@ -2,8 +2,10 @@
 using DeliveryApp.Libs;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
+using SaveFileDialog = System.Windows.Forms.SaveFileDialog;
 
 namespace DeliveryApp.UI
 {
@@ -50,11 +52,11 @@ namespace DeliveryApp.UI
         }
 
         private void btn_Add_Click(object sender, RoutedEventArgs e)
-        {         
+        {
             AddEditPackageWindow addEditPackageWindow = new AddEditPackageWindow(null);
             addEditPackageWindow.ShowDialog();
         }
-       
+
         private void Window_Activated(object sender, EventArgs e)
         {
             List<Package> currentPackages = Delivery_DBEntities.GetContext().Packages.ToList();
@@ -81,7 +83,7 @@ namespace DeliveryApp.UI
         {
             UpdatePackageView();
         }
-     
+
         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
@@ -89,6 +91,51 @@ namespace DeliveryApp.UI
             mainWindow.Show();
             this.Close();
         }
-      
+
+        private void btn_toPDF_Click(object sender, RoutedEventArgs e)
+        {
+            if (PackageInfo.ViewPackages.SelectedItem != null)
+            {
+                try
+                {
+                    string imagePath;
+                    string pdfFileName;
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        ReceiptWindow receiptWindow = new ReceiptWindow(PackageInfo.ViewPackages.SelectedItem as Package);
+                        receiptWindow.Show();
+                        imagePath = System.IO.Path.GetTempFileName() + ".png";
+                        PrintWindow.SaveAsPng(PrintWindow.GetImage(receiptWindow), imagePath);
+                        receiptWindow.Close();
+                        using (System.Windows.Forms.SaveFileDialog saveFileDialog = new System.Windows.Forms.SaveFileDialog())
+                        {
+                            saveFileDialog.Filter = "PDF files (.pdf)|.pdf";
+                            saveFileDialog.Title = "Save PDF File";
+
+                            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                            {
+                                pdfFileName = saveFileDialog.FileName;
+                                MessageBox.Show("Документ успешно сохранен!", "Всплывающее окно", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+
+                            }
+                            else
+                            {
+                                return;
+                            }
+                            saveFileDialog.Dispose();
+                        }
+                        ms.Close();
+                    }
+                    PrintWindow.createPdfFromImage(imagePath, pdfFileName);
+                    System.IO.File.Delete(imagePath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+            }
+            else MessageBox.Show("Выберите запись для печати", "Всплывающее окно", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+        }
     }
 }
